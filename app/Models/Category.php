@@ -8,19 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use Translatable;
-
     /**
      * The relations to eager load on every query.
      *
      * @var array
      */
+    /*
+    protected $table ="categories";
+    protected $guarded = [];
+    protected $with = ['translations'];
+    public $timestamps = true;
+    */
     protected $table ="categories";
     protected $guarded = [];
     protected $with = ['translations'];
     public $timestamps = true;
 
-
     protected $translatedAttributes = ['name'];
+
+
 
     /**
      * The attributes that are mass assignable.
@@ -34,7 +40,6 @@ class Category extends Model
      * @var array
      */
     protected $hidden = ['translations'];
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -43,4 +48,20 @@ class Category extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+        
+    
+    
+    public function scopeParent($query){
+        return $query -> whereNull('parent_id');
+    }
+
+
+    public function scopeChild($query){
+        return $query -> whereNull('parent_id');
+    }
+
+    public function getActive(){
+        return  $this -> is_active  == 0 ?  'غير مفعل'   : 'مفعل' ;
+     }
 }
