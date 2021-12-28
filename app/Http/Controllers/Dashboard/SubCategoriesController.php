@@ -15,8 +15,7 @@ class SubCategoriesController extends Controller
 {
     public function index()
     {
-      //   $categories = Category::child()->orderBy('id','DESC') ->paginate(PAGINATION_COUNT);
-      //  return view('dashboard.subcategories.index', compact('categories'));
+    
 
         $categories = Category::child()->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
         return view('dashboard.subcategories.index', compact('categories'));

@@ -58,9 +58,22 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admin' , 'prefix
       Route::post('update/{id}', 'SubCategoriesController@update')->name('admin.subcategories.update');
       Route::get('delete/{id}', 'SubCategoriesController@destroy')->name('admin.subcategories.delete');
     });
-      ######################### end Sub Categories  #############################  
+      ######################### end Sub Categories  ############################# 
+      
+      
+     ######################### brands  routes ############################
+     
+     Route::group(['prefix' => 'sub_categories'], function () {
+      Route::get('/', 'BrandsController@index')->name('admin.brands');
+      Route::get('create', 'BrandsController@create')->name('admin.brands.create');
+      Route::post('store', 'BrandsController@store')->name('admin.brands.store');
+      Route::get('edit/{id}', 'BrandsController@edit')->name('admin.brands.edit');
+      Route::post('update/{id}', 'BrandsController@update')->name('admin.brands.update');
+      Route::get('delete/{id}', 'BrandsController@destroy')->name('admin.brands.delete');
+      });
+      ######################### end brands   #############################  
     
-
+    
  });
 
 
