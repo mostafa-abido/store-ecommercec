@@ -44,46 +44,26 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                             action="{{route('admin.products.general.store')}}"
+                                              action="{{route('admin.products.price.store')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-
-
+                                            <input type="hidden" name="product_id" value="{{$id}}">
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i class="ft-home"></i> البيانات الاساسية للمنتج   </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> اسم  الصنف
+                                                            <label for="projectinput1"> سعر  المنتج
                                                             </label>
-                                                            <input type="text" id="name"
+                                                            <input type="number" id="price"
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                                   value="{{old('name')}}"
-                                                                   name="name">
-                                                            @error("name")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                 
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> وصف المنتج
-                                                            </label>
-                                                            <textarea  name="description" id="description"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                            >{{old('description')}}</textarea>
-
-                                                            @error("description")
+                                                                   value="{{old('price')}}"
+                                                                   name="price">
+                                                            @error("price")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -91,43 +71,77 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الوصف المختصر
+                                                            <label for="projectinput1"> سعر خاص
                                                             </label>
-                                                            <textarea  name="short_description" id="short-description"
-                                                                       class="form-control"
-                                                                       placeholder=""
-                                                            >{{old('short_description')}}</textarea>
-
-                                                            @error("short_description")
+                                                            <input type="number"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('special_price')}}"
+                                                                   name="special_price">
+                                                            @error("special_price")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                 </div>
-
-
-                                             
 
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   checked/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">الحالة </label>
-
-                                                            @error("is_active")
-                                                            <span class="text-danger">{{$message }}</span>
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">نوع السعر
+                                                            </label>
+                                                            <select name="special_price_type" class="select2 form-control" multiple>
+                                                                <optgroup label="من فضلك أختر النوع ">
+                                                                    <option value="percent">precent</option>
+                                                                    <option value="fixed">fixed</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('special_price_type')
+                                                            <span class="text-danger"> {{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
 
                                                 </div>
+
+
+                                                <div class="row" >
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">  رقم الفاتوره
+                                                            </label>
+
+                                                            <input type="date" id="price"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('special_start')}}"
+                                                                   name="special_start">
+
+                                                            @error('special_start')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> تاريخ البداية
+                                                            </label>
+                                                            <input type="date" id="price"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('special_price_end')}}"
+                                                                   name="special_price_end">
+
+                                                            @error('special_price_end')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
 
 

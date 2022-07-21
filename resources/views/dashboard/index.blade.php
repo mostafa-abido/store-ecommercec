@@ -92,10 +92,7 @@
                                         <div class="col-2">
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
-                                        <div class="col-5 pl-2">
-                                            <h4>عدد العملاء </h4>
-                                           
-                                        </div>
+                                     
                                         <div class="col-5 text-right">
                                             <h4>$1.2</h4>
                                             
@@ -127,9 +124,9 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th>رقم الطلب</th>
+                                            <th>رقم الفاتوره</th>
                                             <th>العميل</th>
-                                            <th>السعر</th>
+                                            <th>تاريخ الفاتوره</th>
                                             <th>حاله الطلب</th>
                                             <th>الاجمالي</th>
                                         </tr>
@@ -137,7 +134,7 @@
                                         <tbody>
                                         <tr class="bg-success bg-lighten-5">
                                             <td>105000</td>
-                                            <td>احمد امام</td>
+                                            <td> مصطفى</td>
                                             <td>$ 4762.53</td>
                                             <td>مكتمل</td>
                                             <td>$ 4762.53</td>
@@ -157,27 +154,7 @@
                                 <div class="heading-elements">
                                  </div>
                             </div>
-                            <div class="card-content">
-                                <div class="table-responsive">
-                                    <table class="table table-de mb-0">
-                                        <thead>
-                                        <tr>
-                                            <th> العميل</th>
-                                            <th>المنتج</th>
-                                            <th>التقييم </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="bg-danger bg-lighten-5">
-                                            <td>احمد امام</td>
-                                            <td><i class="cc BTC-alt"></i> ساعه يد</td>
-                                            <td> 5 </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

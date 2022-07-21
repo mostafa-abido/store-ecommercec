@@ -12,7 +12,7 @@ class profileController extends Controller
     public function editProfile()
     {
         $admin = Admin::find( auth('admin') -> user()-> id);
-        return view('dashboard.profile.edit',compact('admin')) ;
+        return view('dashboard.profileClient.edit',compact('admin')) ;
     }
 
     

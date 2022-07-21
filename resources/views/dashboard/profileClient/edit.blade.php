@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -10,10 +9,8 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="">
-                                        المنتجات </a>
-                                </li>
-                                <li class="breadcrumb-item active"> أضافه منتج
+
+                                <li class="breadcrumb-item active">الملف الشخصى 
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +24,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> أضافة منتج جديد </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> تعديل البيانات الشخصيه </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,26 +40,23 @@
                                 @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form"
-                                             action="{{route('admin.products.general.store')}}"
-                                              method="POST"
+                                        <form class="form" action="{{route('update.profile')}}"
+                                              method="post"
                                               enctype="multipart/form-data">
                                             @csrf
-
-
+                                            @method('PUT')
+                                            
 
                                             <div class="form-body">
-
-                                                <h4 class="form-section"><i class="ft-home"></i> البيانات الاساسية للمنتج   </h4>
+                                           
+                                            <input type="hidden" name="id" value="{{$admin -> id}}">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> اسم  الصنف
-                                                            </label>
-                                                            <input type="text" id="name"
+                                                            <label for="projectinput1"> الاسم </label>
+                                                            <input type="text" value="{{$admin -> name  }}" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                                   value="{{old('name')}}"
                                                                    name="name">
                                                             @error("name")
                                                             <span class="text-danger">{{$message}}</span>
@@ -70,20 +64,42 @@
                                                         </div>
                                                     </div>
 
-                                                 
-                                                </div>
-
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> وصف المنتج
-                                                            </label>
-                                                            <textarea  name="description" id="description"
+                                                            <label for="projectinput1"> البريد الالكترونى </label>
+                                                            <input type="text" value="{{$admin -> email  }}" id=""
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                            >{{old('description')}}</textarea>
+                                                                   name="email">
+                                                            @error("email")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
 
-                                                            @error("description")
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">  العنوان </label>
+                                                            <input type="text" value="{{$admin -> name  }}" id=""
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   name="name">
+                                                            @error("name")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">  كلمه المرور الجديده </label>
+                                                            <input type="password" value="" id=""
+                                                                   class="form-control"
+                                                                   placeholder=""
+                                                                   name="password">
+                                                            @error("password")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -91,59 +107,39 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الوصف المختصر
-                                                            </label>
-                                                            <textarea  name="short_description" id="short-description"
-                                                                       class="form-control"
-                                                                       placeholder=""
-                                                            >{{old('short_description')}}</textarea>
-
-                                                            @error("short_description")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
+                                                            <label for="projectinput1">  تاكيد كلمه المرور </label>
+                                                            <input type="password" value="" id=""
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   name="password_confirmation">
+                                                            
                                                         </div>
                                                     </div>
 
-                                                </div>
+                                                              
+
+                                                 </div>
 
 
-                                             
+                                  
+                                                </div>         
 
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   checked/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">الحالة </label>
-
-                                                            @error("is_active")
-                                                            <span class="text-danger">{{$message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
+                                                 </div>
 
 
-                                                </div>
                                             </div>
 
-
                                             <div class="form-actions">
-                                                <button type="button" class="btn btn-warning mr-1"
-                                                        onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
-                                                </button>
+                                               
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="la la-check-square-o"></i> حفظ
                                                 </button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
+
+                             
                             </div>
                         </div>
                     </div>
@@ -153,18 +149,5 @@
         </div>
     </div>
 
+
 @stop
-
-@section('script')
-
-    <script>
-        $('input:radio[name="type"]').change(
-            function(){
-                if (this.checked && this.value == '2') {  // 1 if main cat - 2 if sub cat
-                    $('#cats_list').removeClass('hidden');
-                }else{
-                    $('#cats_list').addClass('hidden');
-                }
-            });
-    </script>
-    @stop
